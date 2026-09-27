@@ -1,0 +1,13 @@
+node_modules/
+data/uploads/*
+data/renders/*
+data/samples/
+data/vision/
+data/*.db
+data/*.db-*
+data/*.log
+data/*.err
+web/dist/
+dist/
+.env
+*.local

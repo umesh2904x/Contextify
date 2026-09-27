@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rose-50: #24170e;
+  --color-rose-100: #302014;
+  --color-rose-200: #432c18;
+  --color-rose-300: #704215;
+  --color-rose-400: #c77727;
+  --color-rose-500: #d78a32;
+  --color-rose-600: #dfaa5a;
+  --color-rose-700: #e9c77f;
+  --color-rose-800: #f0dca9;
+  --color-rose-900: #f7e9c5;
+  --color-rose-950: #fff3d8;
+
+  --color-teal-50: #24170e;
+  --color-teal-100: #302014;
+  --color-teal-200: #432c18;
+  --color-teal-300: #704215;
+  --color-teal-400: #c77727;
+  --color-teal-500: #d78a32;
+  --color-teal-600: #dfaa5a;
+  --color-teal-700: #e9c77f;
+  --color-teal-800: #f0dca9;
+  --color-teal-900: #f7e9c5;
+  --color-teal-950: #fff3d8;
+
+  --color-ink-950: #fffaf0;
+  --color-ink-900: #fff7e8;
+  --color-ink-850: #fffaf0;
+  --color-ink-800: #fff1d6;
+  --color-ink-700: #f4e2bf;
+  --color-ink-600: #e5c992;
+  --color-ink-500: #c88a3b;
+
+  --color-sky-300: #a45e20;
+  --color-sky-400: #c77727;
+  --color-sky-500: #d78a32;
+  --color-violet-300: #a45e20;
+  --color-violet-400: #c77727;
+  --color-violet-500: #d78a32;
+  --color-amber-100: #68451d;
+  --color-amber-200: #68451d;
+  --color-amber-300: #8f571d;
+  --color-amber-400: #bb7625;
+  --color-amber-500: #d49436;
+  --color-amber-950: #fff0cf;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #fff8e8;
+  background-image: linear-gradient(125deg, rgba(245, 207, 135, 0.2), transparent 44%), repeating-linear-gradient(0deg, transparent 0 35px, rgba(137, 98, 47, 0.025) 36px);
+  color: #432c18;
+  font-family: "Avenir Next", "Trebuchet MS", "Nirmala UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+*:focus-visible {
+  outline: 2px solid rgba(210, 139, 48, 0.9);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fff4dc;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #e7b35c, #d88a32);
+  border-radius: 6px;
+  border: 2px solid #fff4dc;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d89135, #c77326);
+}
+
+.panel {
+  background: rgba(255, 251, 241, 0.9);
+  border: 1px solid rgba(177, 126, 58, 0.16);
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Keep compact dashboard labels readable on the warm light theme. */
+#root [class*="text-teal-"],
+#root [class*="text-rose-"],
+#root [class*="text-amber-"] {
+  color: #2f1b0b;
+}
+
+#root [class*="text-[9.5px]"],
+#root [class*="text-[10px]"],
+#root [class*="text-[10.5px]"] {
+  font-size: 0.75rem;
+}
+
+#root [class*="text-[11px]"],
+#root [class*="text-[11.5px]"],
+#root [class*="text-[12px]"] {
+  font-size: 0.85rem;
+}
+
+.upload-dropzone {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(115deg, #fff0bd, #ffd77c 48%, #fff0bd);
+  box-shadow: 0 8px 20px rgba(164, 96, 19, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.upload-dropzone::after {
+  animation: upload-shine 3.8s ease-in-out infinite;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+  content: "";
+  inset: -30% auto -30% -45%;
+  pointer-events: none;
+  position: absolute;
+  transform: skewX(-20deg);
+  width: 28%;
+}
+
+.chat-input-shell {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.5rem;
+  background-size: 200% 100%;
+  box-shadow: 0 6px 18px rgba(164, 96, 19, 0.12);
+  animation: chat-border-shine 5s ease-in-out infinite;
+}
+
+.chat-input-shell::after {
+  animation: upload-shine 3.8s ease-in-out infinite;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.78), transparent);
+  content: "";
+  inset: -30% auto -30% -45%;
+  pointer-events: none;
+  position: absolute;
+  transform: skewX(-20deg);
+  width: 24%;
+}
+
+@keyframes chat-border-shine {
+  0%, 35% { background-position: 0% 50%; }
+  70%, 100% { background-position: 100% 50%; }
+}
+
+.send-button {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.send-button::after {
+  animation: upload-shine 4.2s ease-in-out infinite;
+  background: linear-gradient(100deg, transparent, rgba(255, 248, 218, 0.72), transparent);
+  content: "";
+  inset: -35% auto -35% -65%;
+  pointer-events: none;
+  position: absolute;
+  transform: skewX(-20deg);
+  width: 32%;
+}
+
+@keyframes upload-shine {
+  0%, 25% { transform: translateX(-160%) skewX(-20deg); }
+  78%, 100% { transform: translateX(520%) skewX(-20deg); }
+}
+
+.welcome-stage {
+  background-image: linear-gradient(135deg, rgba(239, 181, 78, 0.18), transparent 42%), repeating-linear-gradient(135deg, transparent 0 52px, rgba(112, 75, 26, 0.025) 53px 54px);
+}
+
+.welcome-frame {
+  isolation: isolate;
+}
+
+.welcome-pattern {
+  background-image: linear-gradient(rgba(99, 62, 19, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 62, 19, 0.055) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(130deg, black, transparent 82%);
+}
+
+.welcome-beam {
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+  filter: blur(5px);
+  pointer-events: none;
+  animation: welcome-sweep 8s ease-in-out infinite;
+}
+
+.shine-button {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.shine-button::after {
+  animation: button-shine 5s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.46), transparent);
+  content: "";
+  inset: -30% auto -30% -40%;
+  pointer-events: none;
+  position: absolute;
+  transform: skewX(-20deg);
+  width: 28%;
+}
+
+@keyframes welcome-sweep {
+  0%, 18% { transform: translateX(-130%); }
+  75%, 100% { transform: translateX(430%); }
+}
+
+@keyframes button-shine {
+  0%, 28% { transform: translateX(-150%) skewX(-20deg); }
+  76%, 100% { transform: translateX(540%) skewX(-20deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-beam,
+  .shine-button::after,
+  .upload-dropzone::after,
+  .chat-input-shell::after,
+  .chat-input-shell,
+  .send-button::after {
+    animation: none;
+  }
+}
+
+.indic {
+  font-family: "Nirmala UI", "Noto Sans Devanagari", "Noto Sans Tamil", Segoe UI, sans-serif;
+}
+
+.hl-box {
+  position: absolute;
+  border: 2px solid rgba(221, 135, 33, 0.95);
+  background: rgba(255, 195, 74, 0.28);
+  border-radius: 3px;
+  box-shadow: 0 0 0 9999px rgba(48, 34, 18, 0.5);
+  pointer-events: none;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 9999px rgba(48, 34, 18, 0.5), 0 0 12px rgba(235, 155, 38, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 9999px rgba(48, 34, 18, 0.5), 0 0 20px rgba(235, 155, 38, 0.9);
+  }
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+.dot-ok {
+  background: #d78a32;
+  box-shadow: 0 0 8px #d78a32;
+}
+.dot-bad {
+  background: #be633e;
+  box-shadow: 0 0 8px #be633e;
+}
+.dot-wait {
+  background: #d4a43b;
+  box-shadow: 0 0 8px #d4a43b;
+}

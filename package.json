@@ -1,0 +1,48 @@
+{
+  "name": "contextify",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Search and understand your documents",
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "tsx watch server/src/index.ts",
+    "dev:web": "vite --config web/vite.config.ts",
+    "build": "vite build --config web/vite.config.ts",
+    "start": "cross-env NODE_ENV=production tsx server/src/index.ts",
+    "electron": "npm run build && electron electron/main.cjs"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@huggingface/transformers": "^3.3.1",
+    "@napi-rs/canvas": "^0.1.65",
+    "@supabase/supabase-js": "^2.49.1",
+    "adm-zip": "^0.5.18",
+    "busboy": "^1.6.0",
+    "framer-motion": "^11.11.11",
+    "hono": "^4.6.14",
+    "officeparser": "^8.0.0",
+    "onnxruntime-node": "^1.23.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.10.38",
+    "tesseract.js": "^5.1.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/busboy": "^1.5.4",
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "lucide-react": "^0.469.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7"
+  }
+}
